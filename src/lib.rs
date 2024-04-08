@@ -1,10 +1,16 @@
-pub enum Cell {
+pub enum GameOfLifeCell {
     Alive,
     Dead,
 }
 
-pub fn print_options() {
-    let options: Vec<Option<u32>> = vec![Some(0), None, Some(69)];
-    let options: Vec<_> = options.iter().filter_map(Option::as_ref).collect();
-    println!("{:?}", options);
+pub struct Board {
+    cells: Vec<GameOfLifeCell>,
+    width: usize,
+    height: usize,
+}
+
+impl Board {
+    pub fn cell(x: usize, y: usize) -> GameOfLifeCell {
+        cells[x * height + y]
+    }
 }
